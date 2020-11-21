@@ -1,5 +1,5 @@
 <template>
-    <v-list-item :active-class="'oui'">
+    <v-list-item>
         <v-list-item-avatar>
             <v-img max-height="50px" max-width="50px" :alt="music.title" :src="music.cover" class="image cover"></v-img>
         </v-list-item-avatar>

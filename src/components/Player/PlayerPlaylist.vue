@@ -8,10 +8,9 @@
             top
             color="deep-purple accent-4"
         ></v-progress-linear>
-        <Player v-if="musicTab.length > 0" @displayAction="displayAction" @selectedMusic="selectedMusic" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex"></Player>
+        <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex"></Player>
       </v-col>
       <v-col cols="12" sm="11" md="10" lg="5">
-        <!---<Playlist @changeSelectedMusic="changeSelectedMusic" :selectedMusicIndex="selectedMusicIndex" :musicTab="musicTab"></Playlist>-->
         <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" :selectedMusicIndex="selectedMusicIndex" :musicTab="musicTab" />
       </v-col>
     </v-row>
@@ -44,6 +43,17 @@
                 let allMusics = await axios.get(MUSICS_API_ENDPOINT);
                 let { data } = allMusics;
                 this.musicTab = data;
+            },
+            async changeFavorite(music) {
+                let body = {
+                    title: music.title,
+                    artist: music.artist,
+                    cover: music.cover,
+                    music: music.music,
+                    favorite: music.favorite,
+                }
+                await axios.put(`${MUSICS_API_ENDPOINT}${music.id}`, body)
+                this.refreshMusic();
             },
             displayAction(action) {
                 if (action == 'playlist' && this.$route.name != 'playlist') {

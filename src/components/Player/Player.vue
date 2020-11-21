@@ -6,17 +6,42 @@
             <v-btn value="playlist" @click="displayAction('playlist')"><v-icon :size="40" >mdi mdi-playlist-music</v-icon></v-btn>
             <v-btn value="add" @click="displayAction('add')"><v-icon :size="40">mdi mdi-playlist-plus</v-icon></v-btn>
         </v-btn-toggle>
+        <div class="button-wrapper-2">
+            <v-icon v-if="musicSelected.favorite" :size="40" @click="changeFavorite()">mdi mdi-heart</v-icon>
+            <v-icon v-else :size="40" @click="changeFavorite()">mdi mdi-heart-outline</v-icon>
+            <v-dialog v-model="dialog" width="500">
+                <template v-slot:activator="{ on, attrs }">
+                    <v-icon :size="40" v-on="on" v-bind="attrs">mdi mdi-heart-box-outline</v-icon>
+                </template>
+                <v-card>
+                    <v-card-title class="headline grey lighten-2">
+                        Musiques dans les favoris
+                    </v-card-title>
+                    <v-card-text>
+                        <v-list>
+                            <PlaylistItem v-for="(music, idx) in allFavoriteMusic()" :key="idx" :music="music"></PlaylistItem>
+                        </v-list>
+                    </v-card-text>
+                    <v-divider></v-divider>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="primary" text @click="dialog = false">OK</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </div>
     </v-card>
 </template>
 
 <script>
     import CoverTrack from "./CoverTrack";
     import InformationsTrack from "./InformationsTrack";
+    import PlaylistItem from "./PlaylistItem";
     export default {
         name: "Player",
         props: {
             musicTab: Array,
-            selectedMusicIndex: Number
+            selectedMusicIndex: Number,
         },
         data: function () {
             return {
@@ -25,10 +50,14 @@
                 isNext: true,
                 indexMusic: this.selectedMusicIndex,
                 musicSelected: {},
-                buttonAction: ''
+                buttonAction: '',
+                dialog: false,
             };
         },
         methods: {
+            allFavoriteMusic() {
+                return this.musicTab.filter(music => music.favorite == true);
+            },
             action(action) {
                 if (action === 'play') {
                     this.isPlayed = !this.isPlayed;
@@ -42,6 +71,10 @@
             displayAction(action) {
                 this.buttonAction = action;
                 this.$emit('displayAction', action);
+            },
+            changeFavorite() {
+                this.musicSelected.favorite = !this.musicSelected.favorite;
+                this.$emit('changeFavorite', this.musicSelected);
             },
             previous() {
                 let index = this.indexMusic;
@@ -62,7 +95,8 @@
         },
         components: {
             CoverTrack,
-            InformationsTrack
+            InformationsTrack,
+            PlaylistItem
         },
         computed: {
         },
@@ -73,6 +107,11 @@
         watch: {
             indexMusic(val) {
                 this.musicSelected = this.musicTab[val];
+                if (this.musicSelected.favorite) {
+                    this.isMusicFavorite = true;
+                } else {
+                    this.isMusicFavorite = false;
+                }
             },
             selectedMusicIndex(val) {
                 this.indexMusic = val;
@@ -86,6 +125,14 @@
         position: absolute;
         top: 10px;
         right: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button-wrapper-2{
+        position: absolute;
+        top: 10px;
+        left: 10px;
         display: flex;
         flex-direction: column;
     }

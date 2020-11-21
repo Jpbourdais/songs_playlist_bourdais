@@ -62,6 +62,7 @@
                     artist: this.artist,
                     cover: this.cover,
                     music: this.music,
+                    favorite: false,
                 }
                 await axios.post(`${MUSICS_API_ENDPOINT}`, body)
                 this.$emit("refreshMusic");
