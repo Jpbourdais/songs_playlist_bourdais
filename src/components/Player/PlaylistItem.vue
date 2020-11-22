@@ -7,7 +7,10 @@
             <v-list-item-title>{{music.title}}</v-list-item-title>
             <v-list-item-subtitle>{{artist.name}}</v-list-item-subtitle>
         </v-list-item-content>
-        <v-list-item-action><v-icon :size="40" @click.stop="displayArtist(artist.id)">mdi mdi-information-outline</v-icon></v-list-item-action>
+        <v-list-item-action>
+            <v-icon :size="40" @click.stop="displayArtist(artist.id)">mdi mdi-information-outline</v-icon>
+            <v-icon :size="40" @click.stop="addInQueue(music.id)">mdi mdi-skip-next-circle</v-icon>
+        </v-list-item-action>
     </v-list-item>
 </template>
 
@@ -29,6 +32,9 @@
             displayArtist(idArtist) {
                 this.$emit('changeSelectButton', 'information');
                 this.$router.push({name: 'artist', params: { idArtist: idArtist }})
+            },
+            addInQueue(idMusic) {
+                this.$emit('addInQueue', idMusic);
             }
         },
         components: {
@@ -49,5 +55,8 @@
     .image.cover {
         width: 50px !important;
         object-fit: cover;
+    }
+    .v-list-item__action--stack {
+        flex-direction: row;
     }
 </style>

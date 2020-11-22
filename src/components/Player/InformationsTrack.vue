@@ -109,9 +109,14 @@
         created() {
             this.artistChange();
         },
+        mounted() {
+            let audio = document.getElementById("player");
+            audio.addEventListener("ended", function(){
+                this.action('next')
+            }.bind(this), false);
+        },
         updated() {
             this.played();
-            this.artistChange();
         },
     };
 </script>

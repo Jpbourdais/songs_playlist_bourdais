@@ -8,10 +8,10 @@
             top
             color="deep-purple accent-4"
         ></v-progress-linear>
-        <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex" :selectedButton="selectedButton"></Player>
+        <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" @addInQueue="addInQueue" @removeOneInQueue="removeOneInQueue" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex" :selectedButton="selectedButton" :inQueue="inQueue"></Player>
       </v-col>
       <v-col cols="12" sm="11" md="10" lg="5">
-        <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" :artistTab="artistTab" />
+        <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" @addInQueue="addInQueue" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" :artistTab="artistTab" />
       </v-col>
     </v-row>
 </template>
@@ -34,6 +34,7 @@
                 selectedButton: '',
                 musicTab: [],
                 artistTab: [],
+                inQueue: [],
             };
         },
         methods: {
@@ -87,6 +88,15 @@
             },
             async refreshMusic() {
                 await this.fetchAllMusics();
+            },
+            removeOneInQueue() {
+                this.inQueue.pop();
+            },
+            addInQueue(idMusic) {
+                let index = this.musicTab.map(function(el) {
+                    return el.id;
+                }).indexOf(idMusic);
+                this.inQueue.push(index);
             }
         },
         components: {

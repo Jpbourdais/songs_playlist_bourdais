@@ -12,7 +12,7 @@
         ></v-text-field>
         <v-list>
             <v-list-item-group v-model="selectedMusic">
-                <PlaylistItem v-for="music in musicTabFilter" :key="music.id" :music="music" @changeSelectButton="changeSelectButton"></PlaylistItem>
+                <PlaylistItem v-for="music in musicTabFilter" :key="music.id" :music="music" @changeSelectButton="changeSelectButton" @addInQueue="addInQueue"></PlaylistItem>
             </v-list-item-group>
         </v-list>
     </div>
@@ -38,6 +38,9 @@
         methods: {
             changeSelectButton(button) {
                 this.$emit('changeSelectButton', button);
+            },
+            addInQueue(idMusic) {
+                this.$emit('addInQueue', idMusic);
             }
         },
         components: {

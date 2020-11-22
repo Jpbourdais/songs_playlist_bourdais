@@ -18,11 +18,10 @@
                     <v-card-title class="headline grey lighten-2">
                         Musiques dans les favoris
                     </v-card-title>
-                    <v-card-text>
-                        <v-list>
-                            <PlaylistItem v-for="(music, idx) in allFavoriteMusic()" :key="idx" :music="music"></PlaylistItem>
+                        <v-list v-if="allFavoriteMusic().length > 0">
+                            <PlaylistItem v-for="(music, idx) in allFavoriteMusic()" :key="idx" :music="music" @addInQueue="addInQueue"></PlaylistItem>
                         </v-list>
-                    </v-card-text>
+                        <v-card-title v-else>Il n'y a pas de musique en favori :(</v-card-title>
                     <v-divider></v-divider>
                     <v-card-actions>
                         <v-spacer></v-spacer>
@@ -43,7 +42,8 @@
         props: {
             musicTab: Array,
             selectedMusicIndex: Number,
-            selectedButton: String
+            selectedButton: String,
+            inQueue: Array
         },
         data: function () {
             return {
@@ -87,12 +87,20 @@
                 }
             },
             next() {
-                let index = this.indexMusic;
-                if (index != this.musicTab.length - 1) {
-                    this.indexMusic++;
+                if (this.inQueue.length > 0) {
+                    this.indexMusic = this.inQueue[this.inQueue.length - 1];
+                    this.$emit('removeOneInQueue');
                 } else {
-                    this.indexMusic = 0;
+                    let index = this.indexMusic;
+                    if (index != this.musicTab.length - 1) {
+                        this.indexMusic++;
+                    } else {
+                        this.indexMusic = 0;
+                    }
                 }
+            },
+            addInQueue(idMusic) {
+                this.$emit('addInQueue', idMusic);
             }
         },
         components: {

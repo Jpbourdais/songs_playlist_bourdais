@@ -10,6 +10,7 @@
             required
         ></v-text-field>
         <v-select
+          v-model="artist"
           :items="items"
           label="Artiste"
         ></v-select>
@@ -49,7 +50,7 @@
             return {
                 valid: false,
                 title: '',
-                artist: '',
+                artist: 0,
                 cover: '',
                 music: '',
                 items: []
