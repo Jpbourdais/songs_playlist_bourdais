@@ -26,12 +26,13 @@
         props: {
             musicTab: Array,
             selectedMusicIndex: Number,
-            selectedMusicId: Number
+            selectedMusicId: Number,
+            artistTab: Array
         },
         data: function () {
             return {
                 buttonAction: 'title',
-                search: ''
+                search: '',
             };
         },
         methods: {
@@ -57,7 +58,17 @@
             musicTabFilter: function() {
                 if (this.search != '') {
                     let musicTabFilter = this.musicTab;
-                    return musicTabFilter.filter(music => music[this.buttonAction].includes(this.search));
+                    if (this.buttonAction == 'artist') {
+                        let artistTabFilter = this.artistTab;
+                        let artist = artistTabFilter.filter(artist => artist['name'].includes(this.search));
+                        let idTab = []
+                        if (artist.length > 0) {
+                            artist.forEach(element => idTab.push(element.id));
+                        }
+                        return musicTabFilter.filter(music => idTab.includes(music[this.buttonAction]));
+                    } else {
+                        return musicTabFilter.filter(music => music[this.buttonAction].includes(this.search));
+                    }
                 }
                 return this.musicTab
             }

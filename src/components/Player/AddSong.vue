@@ -9,12 +9,10 @@
             label="Titre"
             required
         ></v-text-field>
-        <v-text-field
-            v-model="artist"
-            :counter="30"
-            label="Artiste"
-            required
-        ></v-text-field>
+        <v-select
+          :items="items"
+          label="Artiste"
+        ></v-select>
         <v-text-field
             v-model="cover"
             :counter="250"
@@ -45,6 +43,7 @@
     export default {
         name: "AddSong",
         props: {
+            artistTab: Array
         },
         data: function () {
             return {
@@ -52,7 +51,8 @@
                 title: '',
                 artist: '',
                 cover: '',
-                music: ''
+                music: '',
+                items: []
             };
         },
         methods: {
@@ -73,6 +73,9 @@
         computed: {
         },
         created() {
+            let items = [];
+            this.artistTab.forEach(element => items.push({text: element.name, value: element.id}));
+            this.items = items;
         },
         watch: {
         },

@@ -30,7 +30,6 @@
         computed: {
         },
         async created() {
-
             let artist = await axios.get(ARTISTS_API_ENDPOINT+this.$route.params.idArtist);
             let { data } = artist;
             this.artist = data;

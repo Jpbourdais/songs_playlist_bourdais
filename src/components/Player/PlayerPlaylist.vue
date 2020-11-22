@@ -11,7 +11,7 @@
         <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex" :selectedButton="selectedButton"></Player>
       </v-col>
       <v-col cols="12" sm="11" md="10" lg="5">
-        <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" />
+        <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" :artistTab="artistTab" />
       </v-col>
     </v-row>
 </template>
@@ -19,6 +19,7 @@
 <script>
     import axios from "axios";
     const MUSICS_API_ENDPOINT = 'http://localhost:3000/musics/';
+    const ARTISTS_API_ENDPOINT = 'http://localhost:3000/artists/';
 
     import Player from "./Player";
     //import Playlist from "./Playlist";
@@ -32,6 +33,7 @@
                 selectedMusicId: 1,
                 selectedButton: '',
                 musicTab: [],
+                artistTab: [],
             };
         },
         methods: {
@@ -53,6 +55,11 @@
                 let allMusics = await axios.get(MUSICS_API_ENDPOINT);
                 let { data } = allMusics;
                 this.musicTab = data;
+            },
+            async fetchAllArtists(){
+                let allArtists = await axios.get(ARTISTS_API_ENDPOINT);
+                let { data } = allArtists;
+                this.artistTab = data;
             },
             async changeFavorite(music) {
                 let body = {
@@ -90,6 +97,7 @@
         },
         async created(){
             await this.fetchAllMusics();
+            await this.fetchAllArtists();
         },
         watch: {
         },
