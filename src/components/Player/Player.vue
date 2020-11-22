@@ -5,6 +5,7 @@
         <v-btn-toggle class="button-wrapper" v-model="buttonAction" borderless tile group>
             <v-btn value="playlist" @click="displayAction('playlist')"><v-icon :size="40" >mdi mdi-playlist-music</v-icon></v-btn>
             <v-btn value="add" @click="displayAction('add')"><v-icon :size="40">mdi mdi-playlist-plus</v-icon></v-btn>
+            <v-btn value="information" @click="displayAction('information', musicSelected.artist)"><v-icon :size="40">mdi mdi-information-outline</v-icon></v-btn>
         </v-btn-toggle>
         <div class="button-wrapper-2">
             <v-icon v-if="musicSelected.favorite" :size="40" @click="changeFavorite()">mdi mdi-heart</v-icon>
@@ -42,6 +43,7 @@
         props: {
             musicTab: Array,
             selectedMusicIndex: Number,
+            selectedButton: String
         },
         data: function () {
             return {
@@ -68,9 +70,9 @@
                 }
                 this.$emit('selectedMusic', this.indexMusic);
             },
-            displayAction(action) {
+            displayAction(action, param1 = null) {
                 this.buttonAction = action;
-                this.$emit('displayAction', action);
+                this.$emit('displayAction', action, param1);
             },
             changeFavorite() {
                 this.musicSelected.favorite = !this.musicSelected.favorite;
@@ -105,6 +107,9 @@
             this.buttonAction = this.$route.name;
         },
         watch: {
+            selectedButton(val) {
+                this.buttonAction = val;
+            },
             indexMusic(val) {
                 this.musicSelected = this.musicTab[val];
                 if (this.musicSelected.favorite) {

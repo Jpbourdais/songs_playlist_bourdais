@@ -6,7 +6,7 @@
         </v-col>
         <v-col cols="12" sm="9" md="8" lg="7" order="1" order-md="2">
             <v-card-title>{{titleTrack}}</v-card-title>
-            <v-card-subtitle>{{artistTrack}}</v-card-subtitle>
+            <v-card-subtitle>{{artist.name}}</v-card-subtitle>
         </v-col>
         <v-col cols="8" md="2" order="3">
             <v-row class="justify-center">
@@ -28,11 +28,14 @@
 </template>
 
 <script>
+    import axios from "axios";
+    const ARTISTS_API_ENDPOINT = 'http://localhost:3000/artists/';
+
     export default {
         name: "InformationsTrack",
         props: {
             titleTrack: String,
-            artistTrack: String,
+            artistTrack: Number,
             srcTrack: String,
             indexMusic: Number,
             isPlayed: Boolean,
@@ -44,6 +47,7 @@
                 classSound: 'mdi-volume-high',
                 isMuted: false,
                 sound: 100,
+                artist: {}
             };
         },
         methods: {
@@ -78,6 +82,11 @@
                 } else {
                     this.classSound = 'mdi-volume-off';
                 }
+            },
+            async artistChange() {
+                let artist = await axios.get(ARTISTS_API_ENDPOINT+this.artistTrack);
+                let { data } = artist;
+                this.artist = data;
             }
         },
         components: {
@@ -97,8 +106,12 @@
                 } 
             }
         },
+        created() {
+            this.artistChange();
+        },
         updated() {
             this.played();
+            this.artistChange();
         },
     };
 </script>

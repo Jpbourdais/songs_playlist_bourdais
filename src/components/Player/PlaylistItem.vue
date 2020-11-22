@@ -1,32 +1,44 @@
 <template>
-    <v-list-item>
+    <v-list-item :value="music.id">
         <v-list-item-avatar>
             <v-img max-height="50px" max-width="50px" :alt="music.title" :src="music.cover" class="image cover"></v-img>
         </v-list-item-avatar>
         <v-list-item-content>
             <v-list-item-title>{{music.title}}</v-list-item-title>
-            <v-list-item-subtitle>{{music.artist}}</v-list-item-subtitle>
+            <v-list-item-subtitle>{{artist.name}}</v-list-item-subtitle>
         </v-list-item-content>
+        <v-list-item-action><v-icon :size="40" @click.stop="displayArtist(artist.id)">mdi mdi-information-outline</v-icon></v-list-item-action>
     </v-list-item>
 </template>
 
 <script>
+    import axios from "axios";
+    const ARTISTS_API_ENDPOINT = 'http://localhost:3000/artists/';
+
     export default {
         name: "PlaylistItem",
         props: {
-            music: Object
+            music: Object,
         },
         data: function () {
             return {
+                artist: {}
             };
         },
         methods: {
+            displayArtist(idArtist) {
+                this.$emit('changeSelectButton', 'information');
+                this.$router.push({name: 'artist', params: { idArtist: idArtist }})
+            }
         },
         components: {
         },
         computed: {
         },
-        created() {
+        async created() {
+            let artist = await axios.get(ARTISTS_API_ENDPOINT+this.music.artist);
+            let { data } = artist;
+            this.artist = data;
         },
         watch: {
         },

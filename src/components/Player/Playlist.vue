@@ -12,7 +12,7 @@
         ></v-text-field>
         <v-list>
             <v-list-item-group v-model="selectedMusic">
-                <PlaylistItem v-for="(music, idx) in musicTabFilter" :key="idx" :music="music"></PlaylistItem>
+                <PlaylistItem v-for="music in musicTabFilter" :key="music.id" :music="music" @changeSelectButton="changeSelectButton"></PlaylistItem>
             </v-list-item-group>
         </v-list>
     </div>
@@ -26,6 +26,7 @@
         props: {
             musicTab: Array,
             selectedMusicIndex: Number,
+            selectedMusicId: Number
         },
         data: function () {
             return {
@@ -34,6 +35,9 @@
             };
         },
         methods: {
+            changeSelectButton(button) {
+                this.$emit('changeSelectButton', button);
+            }
         },
         components: {
             PlaylistItem
@@ -41,12 +45,12 @@
         computed: {
             selectedMusic: {
                 get(){
-                    return this.selectedMusicIndex;
+                    return this.selectedMusicId;
                 },
                 set(val){
                     if (val != undefined) {
                         this.$emit("changeSelectedMusic", val);
-                        return val;
+                        return this.selectedMusicId;
                     }
                 } 
             },
