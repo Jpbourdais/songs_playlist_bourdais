@@ -108,8 +108,6 @@
             InformationsTrack,
             PlaylistItem
         },
-        computed: {
-        },
         created() {
             this.musicSelected = this.musicTab[this.indexMusic];
             this.buttonAction = this.$route.name;
@@ -148,5 +146,10 @@
         left: 10px;
         display: flex;
         flex-direction: column;
+    }
+
+    i,
+    button {
+        color: lightgrey !important
     }
 </style>

@@ -13,23 +13,16 @@
         data: function () {
             return {
             };
-        },
-        methods: {
-        },
-        components: {
-        },
-        computed: {
-        },
-        watch: {
-        },
+        }
     };
 </script>
 
 <style scoped>
     .img {
         transition: all .5s ease-in-out;
+        filter: grayscale(0) brightness(60%);
     }
     .pause {
-        filter: grayscale(1);
+        filter: grayscale(1) brightness(80%);
     }
 </style>

@@ -75,12 +75,6 @@
                 }
                 return this.musicTab
             }
-        },
-        updated() {
-        },
-        created() {
-        },
-        watch: {
-        },
+        }
     };
 </script>

@@ -101,15 +101,10 @@
         },
         components: {
             Player,
-            //Playlist
-        },
-        computed: {
         },
         async created(){
             await this.fetchAllMusics();
             await this.fetchAllArtists();
-        },
-        watch: {
-        },
+        }
     };
 </script>

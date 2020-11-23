@@ -37,17 +37,11 @@
                 this.$emit('addInQueue', idMusic);
             }
         },
-        components: {
-        },
-        computed: {
-        },
         async created() {
             let artist = await axios.get(ARTISTS_API_ENDPOINT+this.music.artist);
             let { data } = artist;
             this.artist = data;
-        },
-        watch: {
-        },
+        }
     };
 </script>
 

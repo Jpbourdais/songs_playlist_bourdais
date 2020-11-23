@@ -89,8 +89,6 @@
                 this.artist = data;
             }
         },
-        components: {
-        },
         computed: {
             soundValue: {
                 get(){
