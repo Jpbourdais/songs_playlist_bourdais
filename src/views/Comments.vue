@@ -6,7 +6,6 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto ratione rem incidunt quam alias eius laboriosam odit itaque veritatis labore! Perferendis pariatur amet ab vitae quos! Doloribus ab necessitatibus quasi!</p>
   </div>
 </template>
-
 <script>
 // @ is an alias to /src
 

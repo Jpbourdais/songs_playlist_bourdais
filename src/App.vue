@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
+    <!--<v-app-bar
         app
         color="primary"
         dark
@@ -35,14 +35,14 @@
           <span class="mr-2">Latest Release</span>
           <v-icon>mdi-open-in-new</v-icon>
         </v-btn>
-    </v-app-bar>
+    </v-app-bar>-->
     <v-main>
-      <div id="nav">
+      <!--<div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
         <router-link to="/portfolio">Portfolio</router-link> |
         <router-link to="/prenom/Jean-Philippe">Prénom</router-link>
-      </div>
+      </div>-->
       <router-view/>
     </v-main>
   </v-app>

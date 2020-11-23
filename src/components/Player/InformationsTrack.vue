@@ -118,6 +118,11 @@
         updated() {
             this.played();
         },
+        watch: {
+            artistTrack() {
+                this.artistChange();
+            }
+        },
     };
 </script>
 

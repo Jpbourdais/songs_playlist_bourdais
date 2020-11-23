@@ -1,6 +1,15 @@
 {
     "name" : "Song Playlist",
     "short_name" : "song_playlist",
+    "start_url" : "/index.html",
+    "scope" : ".",
+    "display" : "standalone",
+    "background_color" : "#ffffff",
+    "theme_color" : "#469e0b",
+    "description" : "Voici une PWA lecteur de musique",
+    "dir" : "ltr",
+    "lang" : "fr-FR",
+    "orientation" : "portrait-primary",
     "icons" : [
         {
         "src" : "/img/icons/android-chrome-192x192.png",
@@ -12,9 +21,5 @@
         "sizes": "512x512",
         "type": "image/png"
         }
-    ],
-    "start_url" : "/index.html",
-    "display" : "standalone",
-    "background_color" : "#000000",
-    "theme_color" : "#4DBA87"
+    ]
 }
