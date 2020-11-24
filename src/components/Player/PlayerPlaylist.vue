@@ -18,8 +18,8 @@
 
 <script>
     import axios from "axios";
-    const MUSICS_API_ENDPOINT = 'http://localhost:3000/musics/';
-    const ARTISTS_API_ENDPOINT = 'http://localhost:3000/artists/';
+    const MUSICS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/musics/';
+    const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
 
     import Player from "./Player";
     //import Playlist from "./Playlist";

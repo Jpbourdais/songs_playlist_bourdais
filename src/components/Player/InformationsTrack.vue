@@ -29,7 +29,7 @@
 
 <script>
     import axios from "axios";
-    const ARTISTS_API_ENDPOINT = 'http://localhost:3000/artists/';
+    const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
 
     export default {
         name: "InformationsTrack",

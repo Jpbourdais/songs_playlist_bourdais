@@ -49,7 +49,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
     .then(cache => {
       let musicsToCache = [];
-      fetch("http://localhost:3000/musics/")
+      fetch("https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/musics/")
         .then(response => response.json())
         .then(response => {
           response.forEach(element => musicsToCache.push('https://cors-anywhere.herokuapp.com/'+element.music))
