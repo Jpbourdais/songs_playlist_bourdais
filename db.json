@@ -1,0 +1,96 @@
+{
+  "musics": [
+    {
+      "title": "Where no one goes",
+      "artist": 1,
+      "cover": "https://37.media.tumblr.com/tumblr_n7nvhfCzem1ruvpgjo1_1403593252_cover.jpg",
+      "music": "https://www.yt-download.org/download/BM8gC3Oj0OA/mp3/128/1606218485/6a6006df6b77f1d5f7c5d8ed7b68d99e3695e6340be613b2fbbccd766e50010a/0",
+      "favorite": true,
+      "id": 1
+    },
+    {
+      "title": "Try Everything",
+      "artist": 2,
+      "cover": "https://upload.wikimedia.org/wikipedia/en/4/44/Try_Everything_%28Shakira%29.jpg",
+      "music": "https://www.yt-download.org/download/jpqV3dzYOgk/mp3/128/1606218624/16f204d7932b2e1a1ceff3bfaeb7940b5d5d72af1b0764dfd7ca6d8fa4f6b0bd/0",
+      "favorite": false,
+      "id": 2
+    },
+    {
+      "title": "Spirit - L'étalon des plaines",
+      "artist": 3,
+      "cover": "https://images-na.ssl-images-amazon.com/images/I/41NpK0rptmL.jpg",
+      "music": "https://www.yt-download.org/download/29TPk17Z4AA/mp3/128/1606220411/333f70e4c25516ea4d35da81e5e207547f51b964508cab61dd0d7be248d1d9c5/0",
+      "favorite": false,
+      "id": 3
+    },
+    {
+      "title": "Counting Stars",
+      "artist": 4,
+      "cover": "https://upload.wikimedia.org/wikipedia/en/3/37/OneRepublic_Counting_Stars_cover.png",
+      "music": "https://www.yt-download.org/download/hT_nvWreIhg/mp3/128/1606220490/fe95a02b15df6570d49c5604aff64e78990c37754d03424a578bef7a9077f5a0/0",
+      "favorite": false,
+      "id": 4
+    },
+    {
+      "title": "OST Interstellar",
+      "artist": 5,
+      "cover": "https://lastfm.freetls.fastly.net/i/u/770x0/cb2d917ce46ca0366cb8dfb4111c0efe.jpg",
+      "music": "https://www.yt-download.org/download/IDsCtDRV2uA/mp3/128/1606220562/2b29361f70f35dfe9042a5a0b64b6f857019c347c418e9229767588baefa8df3/0",
+      "favorite": false,
+      "id": 5
+    },
+    {
+      "title": "OST Tron Legacy",
+      "artist": 6,
+      "cover": "https://images-na.ssl-images-amazon.com/images/I/61wVcH7ByhL._SL1417_.jpg",
+      "music": "https://www.yt-download.org/download/4-J4duzP8Ng/mp3/128/1606220716/86e1d38cf56c34f8085661d69f4b056d18df9e8a74c0b650fac72206c9eaafc9/0",
+      "favorite": false,
+      "id": 6
+    }
+  ],
+  "artists": [
+    {
+      "id": 1,
+      "image": "https://static.wikia.nocookie.net/dreamworks/images/1/1c/J%C3%B3nsi.jpeg",
+      "name": "Jónsi",
+      "description": "Jón Þór Birgisson, dit Jónsi, né le 23 avril 1975 en Islande, est un musicien islandais. Il est notamment connu comme étant le guitariste et chanteur principal du groupe islandais Sigur Rós. Il est aussi impliqué dans un projet musical, Jónsi and Alex, en duo avec son compagnon Alex Somers."
+    },
+    {
+      "id": 2,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/79/Shakira_2014.jpg",
+      "name": "Shakira",
+      "description": "Shakira, de son nom complet Shakira Isabel Mebarak Ripoll, née le 2 février 1977 à Barranquilla, est une auteure-compositrice-interprète colombienne."
+    },
+    {
+      "id": 3,
+      "image": "https://www.gdp.fr/wp-content/uploads/2019/03/bryanadams.jpg",
+      "name": "Bryan Adams",
+      "description": "Bryan Guy Adams, né le 5 novembre 1959 à Kingston (Ontario), est un auteur-compositeur-interprète multi-instrumentiste canadien."
+    },
+    {
+      "id": 4,
+      "image": "https://static.sportpaleisgroep.be/sportpaleis/img/events/2735/030135dbbdc13cfe604bb2829d8e22e9f0c1f199/billboard.jpg",
+      "name": "OneRepublic",
+      "description": "OneRepublic est un groupe de pop rock américain, originaire de Colorado Springs, dans le Colorado. Après quelques années de succès mitigé, ils attirent l'attention du grand public avec la sortie de leurs singles Apologize et Stop and Stare. Apologize était la chanson la plus téléchargée légalement en 2008 aux États-Unis avec des ventes de plus de cinq millions de téléchargements numériques. Le groupe compte plus de cinq millions d'albums vendus à l'extérieur des États-Unis, ce qui représente au total plus de neuf millions de singles d'Apologize et plus de deux millions de Stop and Stare. Un remix d' Apologize est présenté sur l'album Shock Value de Timbaland et sur le premier album du groupe Dreaming Out Loud."
+    },
+    {
+      "id": 5,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Hans-Zimmer-profile.jpg",
+      "name": "Hans Zimmer",
+      "description": "Hans Zimmer est un compositeur de musique de film et producteur de trames sonores allemand, né le 12 septembre 1957 à Francfort. Naturalisé américain, il vit désormais à Los Angeles."
+    },
+    {
+      "id": 6,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/41/Daftpunklapremiere2010.jpg",
+      "name": "Daft Punk",
+      "description": "Daft Punk, est un groupe de musique électronique français, originaire de Paris. Composé de Thomas Bangalter et Guy-Manuel de Homem-Christo, le groupe est actif depuis 1993, et participe à la création et à la démocratisation du mouvement de musique électronique baptisé french touch. Ils font partie des artistes français s'exportant le mieux à l'étranger, et ce depuis la sortie de leur premier véritable succès, Da Funk en 1995. Une des originalités de Daft Punk est la culture de leur notoriété d'artistes indépendants et sans visage, portant toujours en public des casques et des costumes. Ils s'inspirent sur ce point du film Phantom of the Paradise de Brian De Palma."
+    },
+    {
+      "id": 7,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Daniel_Ingram_Profile.png/260px-Daniel_Ingram_Profile.png",
+      "name": "Daniel Ingram",
+      "description": "Daniel Ingram est un auteur-compositeur canadien né le 13 juin 1975 à Vancouver. Composant principalement pour des séries d'animation, il a écrit plus de 200 partitions pour la télévision, dans des genres allant de la pop-musique au rock, en passant par le style Broadway."
+    }
+  ]
+}
