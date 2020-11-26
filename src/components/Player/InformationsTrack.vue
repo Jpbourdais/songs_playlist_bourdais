@@ -20,6 +20,7 @@
                     <v-icon @click="muted" :size="20">mdi {{classSound}}</v-icon>
                     <v-slider class="sound d-none d-md-block" v-model="soundValue" vertical></v-slider>
                     <v-slider class="sound d-block d-md-none" v-model="soundValue"></v-slider>
+                    <knob-control v-model="soundValue" :size="25"></knob-control>
                 </v-col>
             </v-row>
         </v-col>
@@ -29,6 +30,7 @@
 
 <script>
     import axios from "axios";
+    import KnobControl from 'vue-knob-control';
     const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
 
     export default {
@@ -103,6 +105,9 @@
                     this.ChangeIconSound();
                 } 
             }
+        },
+        components: {
+            KnobControl,
         },
         created() {
             this.artistChange();
