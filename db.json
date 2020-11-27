@@ -4,7 +4,7 @@
         "title": "Where no one goes",
         "artist": 1,
         "cover": "https://37.media.tumblr.com/tumblr_n7nvhfCzem1ruvpgjo1_1403593252_cover.jpg",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique1.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique1.mp3",
         "favorite": true,
         "id": 1
       },
@@ -12,7 +12,7 @@
         "title": "Try Everything",
         "artist": 2,
         "cover": "https://upload.wikimedia.org/wikipedia/en/4/44/Try_Everything_%28Shakira%29.jpg",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique2.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique2.mp3",
         "favorite": false,
         "id": 2
       },
@@ -20,7 +20,7 @@
         "title": "Spirit - L'étalon des plaines",
         "artist": 3,
         "cover": "https://images-na.ssl-images-amazon.com/images/I/41NpK0rptmL.jpg",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique3.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique3.mp3",
         "favorite": false,
         "id": 3
       },
@@ -28,7 +28,7 @@
         "title": "Counting Stars",
         "artist": 4,
         "cover": "https://upload.wikimedia.org/wikipedia/en/3/37/OneRepublic_Counting_Stars_cover.png",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique4.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique4.mp3",
         "favorite": false,
         "id": 4
       },
@@ -36,7 +36,7 @@
         "title": "OST Interstellar",
         "artist": 5,
         "cover": "https://lastfm.freetls.fastly.net/i/u/770x0/cb2d917ce46ca0366cb8dfb4111c0efe.jpg",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique5.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique5.mp3",
         "favorite": false,
         "id": 5
       },
@@ -44,7 +44,7 @@
         "title": "OST Tron Legacy",
         "artist": 6,
         "cover": "https://images-na.ssl-images-amazon.com/images/I/61wVcH7ByhL._SL1417_.jpg",
-        "music": "https://jpbourdais.fr/coursynov/musiques/musique6.mp3",
+        "music": "https://cors-anywhere.herokuapp.com/https://jpbourdais.fr/coursynov/musiques/musique6.mp3",
         "favorite": false,
         "id": 6
       }
