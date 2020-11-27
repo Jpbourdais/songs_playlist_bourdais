@@ -24,7 +24,7 @@
                 </v-col>
             </v-row>
         </v-col>
-        <audio id="player" class="d-none" controls="off" :src="srcTrack"></audio>
+        <audio id="player" class="d-none" controls="off" :src="srcTrack" crossOrigin="anonymous"></audio>
     </v-row>
 </template>
 
