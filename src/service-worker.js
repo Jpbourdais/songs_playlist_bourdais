@@ -7,6 +7,14 @@ workbox.precaching.precacheAndRoute([
   '/bundle.js',
   '/style.css',
   '/index.html',
+  '/playlist',
+  '/artist/0',
+  '/artist/1',
+  '/artist/2',
+  '/artist/3',
+  '/artist/4',
+  '/artist/5',
+  '/artist/6',
   '/manifest.json',
   '/img/icons/favicon-32x32.png',
   '/img/icons/favicon-16x16.png',
@@ -30,14 +38,14 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/musics/'),
+  new RegExp('https://playlistsongs-8c2e7.firebaseio.com/musics.json'),
   workbox.strategies.networkFirst({
     cacheName: 'api',
   }),
 );
 
 workbox.routing.registerRoute(
-  new RegExp('https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/'),
+  new RegExp('https://playlistsongs-8c2e7.firebaseio.com/artists.json'),
   workbox.strategies.networkFirst({
     cacheName: 'api',
   }),

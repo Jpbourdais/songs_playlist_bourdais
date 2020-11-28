@@ -19,7 +19,7 @@
                         Musiques dans les favoris
                     </v-card-title>
                         <v-list v-if="allFavoriteMusic().length > 0">
-                            <PlaylistItem v-for="(music, idx) in allFavoriteMusic()" :key="idx" :music="music" @addInQueue="addInQueue"></PlaylistItem>
+                            <PlaylistItem v-for="music in allFavoriteMusic()" :key="music.id" :music="music" @addInQueue="addInQueue"></PlaylistItem>
                         </v-list>
                         <v-card-title v-else>Il n'y a pas de musique en favori :(</v-card-title>
                     <v-divider></v-divider>

@@ -12,7 +12,7 @@
 
 <script>
     import axios from "axios";
-    const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
+    const ARTISTS_API_ENDPOINT = 'https://playlistsongs-8c2e7.firebaseio.com/artists';
 
     export default {
         name: "ArtistDetails",
@@ -24,7 +24,7 @@
             };
         },
         async created() {
-            let artist = await axios.get(ARTISTS_API_ENDPOINT+this.$route.params.idArtist);
+            let artist = await axios.get(ARTISTS_API_ENDPOINT+'/'+this.$route.params.idArtist+'.json');
             let { data } = artist;
             this.artist = data;
         }

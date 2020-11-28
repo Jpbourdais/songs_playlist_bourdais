@@ -18,8 +18,8 @@
 
 <script>
     import axios from "axios";
-    const MUSICS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/musics/';
-    const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
+    const MUSICS_API_ENDPOINT = 'https://playlistsongs-8c2e7.firebaseio.com/musics';
+    const ARTISTS_API_ENDPOINT = 'https://playlistsongs-8c2e7.firebaseio.com/artists';
 
     import Player from "./Player";
     //import Playlist from "./Playlist";
@@ -30,7 +30,7 @@
         data: function () {
             return {
                 selectedMusicIndex: 0,
-                selectedMusicId: 1,
+                selectedMusicId: 0,
                 selectedButton: '',
                 musicTab: [],
                 artistTab: [],
@@ -53,24 +53,20 @@
                 this.selectedButton = button;
             },
             async fetchAllMusics(){
-                let allMusics = await axios.get(MUSICS_API_ENDPOINT);
+                let allMusics = await axios.get(MUSICS_API_ENDPOINT+'.json');
                 let { data } = allMusics;
                 this.musicTab = data;
             },
             async fetchAllArtists(){
-                let allArtists = await axios.get(ARTISTS_API_ENDPOINT);
+                let allArtists = await axios.get(ARTISTS_API_ENDPOINT+'.json');
                 let { data } = allArtists;
                 this.artistTab = data;
             },
             async changeFavorite(music) {
                 let body = {
-                    title: music.title,
-                    artist: music.artist,
-                    cover: music.cover,
-                    music: music.music,
                     favorite: music.favorite,
                 }
-                await axios.put(`${MUSICS_API_ENDPOINT}${music.id}`, body)
+                await axios.patch(`${MUSICS_API_ENDPOINT}/${music.id}.json`, body)
                 this.refreshMusic();
             },
             displayAction(action, param1) {

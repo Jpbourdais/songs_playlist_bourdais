@@ -31,7 +31,7 @@
 <script>
     import axios from "axios";
     import KnobControl from 'vue-knob-control';
-    const ARTISTS_API_ENDPOINT = 'https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/artists/';
+    const ARTISTS_API_ENDPOINT = 'https://playlistsongs-8c2e7.firebaseio.com/artists';
 
     export default {
         name: "InformationsTrack",
@@ -86,7 +86,7 @@
                 }
             },
             async artistChange() {
-                let artist = await axios.get(ARTISTS_API_ENDPOINT+this.artistTrack);
+                let artist = await axios.get(ARTISTS_API_ENDPOINT+'/'+this.artistTrack+'.json');
                 let { data } = artist;
                 this.artist = data;
             }
