@@ -63,14 +63,14 @@
                     let musicTabFilter = this.musicTab;
                     if (this.buttonAction == 'artist') {
                         let artistTabFilter = this.artistTab;
-                        let artist = artistTabFilter.filter(artist => artist['name'].includes(this.search));
+                        let artist = artistTabFilter.filter(artist => artist['name'].toLowerCase().includes(this.search.toLowerCase()));
                         let idTab = []
                         if (artist.length > 0) {
                             artist.forEach(element => idTab.push(element.id));
                         }
                         return musicTabFilter.filter(music => idTab.includes(music[this.buttonAction]));
                     } else {
-                        return musicTabFilter.filter(music => music[this.buttonAction].includes(this.search));
+                        return musicTabFilter.filter(music => music[this.buttonAction].toLowerCase().includes(this.search.toLowerCase()));
                     }
                 }
                 return this.musicTab

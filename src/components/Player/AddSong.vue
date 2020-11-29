@@ -44,6 +44,7 @@
                 }
                 await axios.put(`${MUSICS_API_ENDPOINT}/${newid}.json`, body)
                 this.$emit("refreshMusic");
+                this.$router.push({name: 'playlist'});
             }
         },
         created() {

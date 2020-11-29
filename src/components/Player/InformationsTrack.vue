@@ -107,7 +107,7 @@
                 }
             },
             async artistChange() {
-                let artist = await axios.get(ARTISTS_API_ENDPOINT+'/'+this.artistTrack+'.json');
+                let artist = await axios.get(`${ARTISTS_API_ENDPOINT}/${this.artistTrack}.json`);
                 let { data } = artist;
                 this.artist = data;
             },

@@ -1,19 +1,21 @@
 <template>
-    <v-row class="justify-center">
-      <v-col cols="12" sm="11" md="10" lg="7">
-        <v-progress-linear
-            :active="musicTab.length == 0"
-            :indeterminate="musicTab.length == 0"
-            absolute
-            top
-            color="deep-purple accent-4"
-        ></v-progress-linear>
-        <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" @addInQueue="addInQueue" @removeOneInQueue="removeOneInQueue" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex" :selectedButton="selectedButton" :inQueue="inQueue"></Player>
-      </v-col>
-      <v-col cols="12" sm="11" md="10" lg="5">
-        <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" @addInQueue="addInQueue" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" :artistTab="artistTab" />
-      </v-col>
-    </v-row>
+    <v-container class="container-main">
+        <v-row class="justify-center">
+            <v-col cols="12" sm="11" md="10" lg="7">
+                <v-progress-linear
+                    :active="musicTab.length == 0"
+                    :indeterminate="musicTab.length == 0"
+                    absolute
+                    top
+                    color="deep-purple accent-4"
+                ></v-progress-linear>
+                <Player v-if="musicTab.length > 0" @displayAction="displayAction" @changeFavorite="changeFavorite" @selectedMusic="selectedMusic" @addInQueue="addInQueue" @removeOneInQueue="removeOneInQueue" :musicTab="musicTab" :selectedMusicIndex="selectedMusicIndex" :selectedButton="selectedButton" :inQueue="inQueue"></Player>
+            </v-col>
+            <v-col cols="12" sm="11" md="10" lg="5">
+                <router-view @refreshMusic="refreshMusic" @changeSelectedMusic="changeSelectedMusic" @changeSelectButton="changeSelectButton" @addInQueue="addInQueue" :selectedMusicIndex="selectedMusicIndex" :selectedMusicId="selectedMusicId" :musicTab="musicTab" :artistTab="artistTab" />
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
@@ -53,12 +55,12 @@
                 this.selectedButton = button;
             },
             async fetchAllMusics(){
-                let allMusics = await axios.get(MUSICS_API_ENDPOINT+'.json');
+                let allMusics = await axios.get(`${MUSICS_API_ENDPOINT}.json`);
                 let { data } = allMusics;
                 this.musicTab = data;
             },
             async fetchAllArtists(){
-                let allArtists = await axios.get(ARTISTS_API_ENDPOINT+'.json');
+                let allArtists = await axios.get(`${ARTISTS_API_ENDPOINT}.json`);
                 let { data } = allArtists;
                 this.artistTab = data;
             },
@@ -104,3 +106,9 @@
         }
     };
 </script>
+
+<style scoped>
+    .container-main {
+        max-width: 1100px;
+    }
+</style>

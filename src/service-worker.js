@@ -18,7 +18,19 @@ workbox.precaching.precacheAndRoute([
   '/manifest.json',
   '/img/icons/favicon-32x32.png',
   '/img/icons/favicon-16x16.png',
-  '/img/icons/android-chrome-192x192.png',
+  '/img/icons/apple-icon-180x180-dunplab-manifest-21429.png',
+  '/img/icons/android-icon-192x192-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-152x152-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-144x144-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-120x120-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-114x114-dunplab-manifest-21429.png',
+  '/img/icons/favicon-96x96-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-76x76-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-72x72-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-60x60-dunplab-manifest-21429.png',
+  '/img/icons/apple-icon-57x57-dunplab-manifest-21429.png',
+  '/img/icons/favicon-32x32-dunplab-manifest-21429.png',
+  '/img/icons/favicon-16x16-dunplab-manifest-21429.png',
   'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
   'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
   'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=5.8.55'
@@ -72,21 +84,12 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.rangeRequests.Plugin(),
     ],
-    // This is needed since precached resources may
-    // have a ?_WB_REVISION=... URL param.
     matchOptions: {
       ignoreSearch: true,
       ignoreVary: true
     }
   }),
 );
-
-/*fetch("https://my-json-server.typicode.com/Jpbourdais/songs_playlist_bourdais/musics/")
-    .then(response => response.json())
-    .then(response => {
-      var arrayMusic = [];
-      response.forEach(element => arrayMusic.push(element.music));
-    })*/
 
 var arrayMusic = [
   'https://playlistsongs-8c2e7.web.app/musiques/musique1.mp3',
@@ -95,16 +98,9 @@ var arrayMusic = [
   'https://playlistsongs-8c2e7.web.app/musiques/musique4.mp3',
   'https://playlistsongs-8c2e7.web.app/musiques/musique5.mp3',
   'https://playlistsongs-8c2e7.web.app/musiques/musique6.mp3',
+  'https://playlistsongs-8c2e7.web.app/musiques/musique7.mp3',
+  'https://playlistsongs-8c2e7.web.app/musiques/musique8.mp3',
+  'https://playlistsongs-8c2e7.web.app/musiques/musique9.mp3',
 ]
     
 workbox.precaching.precacheAndRoute(arrayMusic);
-
-/*workbox.routing.registerRoute(
-  new RegExp('https'),
-  workbox.strategies.networkFirst({
-    cacheName: 'musics',
-    plugins: [
-      new workbox.rangeRequests.Plugin(),
-    ],
-  })
-);*/
